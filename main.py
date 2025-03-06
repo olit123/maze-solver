@@ -1,11 +1,12 @@
-from graphics import Window, Line
+from graphics import Window
+from cell import Cell
 
 def main():
     window = Window(800, 600)
-    line_1 = Line((0, 0), (400, 300))
-    line_2 = Line((800, 0), (400, 300))
-    window.draw_line(line_1, "black")
-    window.draw_line(line_2, "red")
+    cell_1 = Cell(window, 40, 60, 60, 70)
+    cell_2 = Cell(window, 60, 80, 70, 80)
+    cell_1.draw()
+    cell_2.draw()
     window.wait_for_close()
     print("Is this thing on?")
 
