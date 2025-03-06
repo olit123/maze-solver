@@ -29,3 +29,16 @@ class Cell():
         if self.has_left_wall:
             line = Line((self._x1, self._y1), (self._x1, self._y2))
             self._win.draw_line(line, "black")
+    
+    def get_center(self):
+        return (
+            self._x1 + int((self._x2 - self._x1) / 2),
+            self._y1 + int((self._y2 - self._y1) / 2)
+        )
+    
+    def draw_move(self, to_cell, undo=False):
+        line = Line(self.get_center(), to_cell.get_center())
+        if not undo:
+            self._win.draw_line(line, "grey")
+        else:
+            self._win.draw_line(line, "red")
